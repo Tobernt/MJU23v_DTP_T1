@@ -119,15 +119,15 @@ namespace MJU23v_DTP_T1
 
                     case "list between":
                         Console.WriteLine("Enter the lower limit of the population range:");
-                        if (int.TryParse(Console.ReadLine(), out int lowNum))
+                        if (int.TryParse(Console.ReadLine(), out int lowNumber))
                         {
                             Console.WriteLine("Enter the upper limit of the population range:");
-                            if (int.TryParse(Console.ReadLine(), out int highNum))
+                            if (int.TryParse(Console.ReadLine(), out int highNumber))
                             {
-                                Console.WriteLine($"==== Languages with Population Between {lowNum} and {highNum} ====");
+                                Console.WriteLine($"==== Languages with Population Between {lowNumber} and {highNumber} ====");
                                 foreach (var language in eulangs)
                                 {
-                                    if (language.pop >= lowNum && language.pop <= highNum)
+                                    if (language.pop >= lowNumber && language.pop <= highNumber)
                                     {
                                         Console.WriteLine(language.language);
                                     }
@@ -201,8 +201,38 @@ namespace MJU23v_DTP_T1
                         break;
 
                     case "show between":
-                        // NYI: Implementera show between kommandot
+                        Console.Write("Enter low population number: ");
+                        if (int.TryParse(Console.ReadLine(), out int lowNum))
+                        {
+                            Console.Write("Enter high population number: ");
+                            if (int.TryParse(Console.ReadLine(), out int highNum))
+                            {
+                                var languagesInRange = eulangs.Where(lang => lang.pop >= lowNum && lang.pop <= highNum).OrderBy(lang => lang.pop);
+
+                                if (languagesInRange.Any())
+                                {
+                                    Console.WriteLine($"==== Population between {lowNum} and {highNum} ====");
+                                    foreach (var language in languagesInRange)
+                                    {
+                                        Console.WriteLine($"Language {language.language}:\nfamily: {language.group}\npopulation: {language.pop}\narea: {language.area}\n");
+                                    }
+                                }
+                                else
+                                {
+                                    Console.WriteLine($"No languages found in the population range {lowNum} to {highNum}.");
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid input for high population number. Please enter a valid integer.");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid input for low population number. Please enter a valid integer.");
+                        }
                         break;
+
                     case "population group":
                         // NYI: Implementera population group kommandot
                         break;
