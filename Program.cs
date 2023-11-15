@@ -98,6 +98,24 @@ namespace MJU23v_DTP_T1
                     case "list between":
                         // NYI: Implementera list between kommandot
                         break;
+                    case "show language":
+                        // NYI: Implementera show language kommandot
+                        break;
+                    case "show group":
+                        // NYI: Implementera show group kommandot
+                        break;
+                    case "show country":
+                        // NYI: Implementera show country kommandot
+                        break;
+                    case "show between":
+                        // NYI: Implementera show between kommandot
+                        break;
+                    case "population group":
+                        // NYI: Implementera population group kommandot
+                        break;
+                    case "help":
+                        // NYI: Implementera help kommandot
+                        break;
                     case "quit":
                         exit = true;
                         break;
