@@ -116,9 +116,32 @@ namespace MJU23v_DTP_T1
                         }
                         break;
                     case "list between":
-                        // NYI: Implementera list between kommandot
+                        Console.WriteLine("Enter the lower limit of the population range:");
+                        if (int.TryParse(Console.ReadLine(), out int lowNum))
+                        {
+                            Console.WriteLine("Enter the upper limit of the population range:");
+                            if (int.TryParse(Console.ReadLine(), out int highNum))
+                            {
+                                Console.WriteLine($"==== Languages with Population Between {lowNum} and {highNum} ====");
+                                foreach (var language in eulangs)
+                                {
+                                    if (language.pop >= lowNum && language.pop <= highNum)
+                                    {
+                                        Console.WriteLine(language.language);
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid input for upper limit. Please enter a valid integer.");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid input for lower limit. Please enter a valid integer.");
+                        }
                         break;
-                    case "show language":
+                    case "show":
                         // NYI: Implementera show language kommandot
                         break;
                     case "show group":
