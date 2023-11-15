@@ -1,4 +1,4 @@
-﻿/* 
+﻿/*Task list
 DELUPPGIFT 1: Ladda filen lang.txt vid programstart
 1.1 Implementera kod för att läsa innehållet från lang.txt (Redan gjort av läraren)
 1.2 Testa och säkerställ att filen laddas korrekt  (körde en test körning och den listar infon)
@@ -26,7 +26,7 @@ DELUPPGIFT 5: Kommentera Kod
 
 DELUPPGIFT 6: Validering och Testning
 6.1 Testa varje kommando och se till att de ger förväntade resultat
-6.2 Validera användarens inmatning och hantera felaktiga kommandon med //FIXME-kommentarer
+6.2 Validera användarens inmatning och hantera felaktiga kommandon med //FIXME-kommentarer  -- Future me, I did not remember and did more work then necessary in most else situations where I could of just added //FIXME
 6.3 Gör stage/commit/push för detta steg
 */
 
@@ -68,19 +68,20 @@ namespace MJU23v_DTP_T1
         static List<Language> eulangs = new List<Language>();
         static void Main(string[] arg)
         {
+            // Load data from lang.txt file
+
             using (StreamReader sr = new StreamReader($"{dir}\\lang.txt"))
             {
                 Language lang;
                 string line = sr.ReadLine();
                 while (line != null)
                 {
-                    // Console.WriteLine(line);
                     lang = new Language(line);
                     eulangs.Add(lang);
                     line = sr.ReadLine();
                 }
             }
-            // Kommandoradsloop
+            // Program loop
             bool exit = false;
             while (!exit)
             {
@@ -90,6 +91,7 @@ namespace MJU23v_DTP_T1
                 switch (input)
                 {
                     case "list group":
+                        //TBD Could be Refactored
                         Console.WriteLine("Enter the name of the language group (leave blank to list all groups):");
                         string inputGroup = Console.ReadLine().Trim();
 
@@ -104,6 +106,7 @@ namespace MJU23v_DTP_T1
                         break;
 
                     case "list country":
+                        //TBD Could be Refactored
                         Console.WriteLine("Enter the name of the country (leave blank to list all countries):");
                         string inputCountry = Console.ReadLine().Trim();
 
@@ -118,6 +121,7 @@ namespace MJU23v_DTP_T1
                         break;
 
                     case "list between":
+                        //TBD Could be Refactored
                         Console.WriteLine("Enter the lower limit of the population range:");
                         if (int.TryParse(Console.ReadLine(), out int lowNumber))
                         {
@@ -145,6 +149,7 @@ namespace MJU23v_DTP_T1
                         break;
 
                     case "show language":
+                        //TBD Could be Refactored
                         Console.Write("Enter language name: ");
                         string languageName = Console.ReadLine();
 
@@ -161,6 +166,7 @@ namespace MJU23v_DTP_T1
                         break;
 
                     case "show group":
+                        //TBD Could be Refactored
                         Console.Write("Enter group name: ");
                         inputGroup = Console.ReadLine().Trim();
 
@@ -182,6 +188,7 @@ namespace MJU23v_DTP_T1
                         break;
 
                     case "show country":
+                        //TBD Could be Refactored
                         Console.Write("Enter country name: ");
                         inputCountry = Console.ReadLine();
 
@@ -201,6 +208,7 @@ namespace MJU23v_DTP_T1
                         break;
 
                     case "show between":
+                        //TBD Could be Refactored
                         Console.Write("Enter low population number: ");
                         if (int.TryParse(Console.ReadLine(), out int lowNum))
                         {
@@ -211,7 +219,6 @@ namespace MJU23v_DTP_T1
 
                                 if (languagesInRange.Any())
                                 {
-                                    Console.WriteLine($"==== Population between {lowNum} and {highNum} ====");
                                     foreach (var language in languagesInRange)
                                     {
                                         Console.WriteLine($"Language {language.language}:\nfamily: {language.group}\npopulation: {language.pop}\narea: {language.area}\n");
@@ -234,6 +241,7 @@ namespace MJU23v_DTP_T1
                         break;
 
                     case "population group":
+                        //TBD Could be Refactored
                         Console.Write("Enter group name: ");
                         string inputGroupName = Console.ReadLine();
 
@@ -264,7 +272,6 @@ namespace MJU23v_DTP_T1
                 }
             }
         }
-
     }
 }
 
