@@ -90,7 +90,11 @@ namespace MJU23v_DTP_T1
                 switch (input)
                 {
                     case "list group":
-                        // NYI: Implementera list group kommandot
+                        Console.WriteLine("==== List of Language Groups ====");
+                        foreach (var group in eulangs.Select(lang => lang.group).Distinct())
+                        {
+                            Console.WriteLine($"- {group}");
+                        }
                         break;
                     case "list country":
                         // NYI: Implementera list country kommandot
