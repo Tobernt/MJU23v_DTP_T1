@@ -183,7 +183,7 @@ namespace MJU23v_DTP_T1
 
                     case "show country":
                         Console.Write("Enter country name: ");
-                        inputCountry = Console.ReadLine()?.Trim();
+                        inputCountry = Console.ReadLine();
 
                         var languagesInCountry = eulangs.Where(lang => lang.area.Split(',').Any(country => country.Equals(inputCountry, StringComparison.OrdinalIgnoreCase))).ToList();
 
@@ -234,15 +234,30 @@ namespace MJU23v_DTP_T1
                         break;
 
                     case "population group":
-                        // NYI: Implementera population group kommandot
+                        Console.Write("Enter group name: ");
+                        string inputGroupName = Console.ReadLine();
+
+                        var populationInGroup = eulangs.Where(lang => lang.group.Split('>').Any(group => group.Equals(inputGroupName, StringComparison.OrdinalIgnoreCase))).Sum(lang => lang.pop);
+
+                        if (populationInGroup > 0)
+                        {
+                            Console.WriteLine($"Sum population {inputGroupName}: {populationInGroup}");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Group '{inputGroupName}' not found");
+                        }
                         break;
+
                     case "help":
                             Console.WriteLine("Available commands: list group, list country, list between, show language, show group, show country, show between, population group, help, quit");
                         break;
+
                     case "quit":
                         Console.WriteLine("Exiting program...");
                         exit = true;
                         break;
+
                     default:
                         Console.WriteLine("Invalid command. Type 'help' for a list of commands.");
                         break;
