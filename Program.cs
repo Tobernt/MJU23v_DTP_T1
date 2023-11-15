@@ -90,14 +90,30 @@ namespace MJU23v_DTP_T1
                 switch (input)
                 {
                     case "list group":
-                        Console.WriteLine("==== List of Language Groups ====");
-                        foreach (var group in eulangs.Select(lang => lang.group).Distinct())
+                        Console.WriteLine("Enter the name of the language group (leave blank to list all groups):");
+                        string inputGroup = Console.ReadLine().Trim();
+
+                        Console.WriteLine("==== Languages in Language Group ====");
+                        foreach (var language in eulangs)
                         {
-                            Console.WriteLine($"- {group}");
+                            if (string.IsNullOrWhiteSpace(inputGroup) || language.group.IndexOf(inputGroup, StringComparison.OrdinalIgnoreCase) != -1)
+                            {
+                                Console.WriteLine(language.language);
+                            }
                         }
                         break;
                     case "list country":
-                        // NYI: Implementera list country kommandot
+                        Console.WriteLine("Enter the name of the country (leave blank to list all countries):");
+                        string inputCountry = Console.ReadLine().Trim();
+
+                        Console.WriteLine("==== Languages in Country ====");
+                        foreach (var language in eulangs)
+                        {
+                            if (string.IsNullOrWhiteSpace(inputCountry) || language.area.IndexOf(inputCountry, StringComparison.OrdinalIgnoreCase) != -1)
+                            {
+                                Console.WriteLine(language.language);
+                            }
+                        }
                         break;
                     case "list between":
                         // NYI: Implementera list between kommandot
