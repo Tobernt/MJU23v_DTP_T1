@@ -92,6 +92,9 @@ namespace MJU23v_DTP_T1
                     case "list group":
                         // NYI: Implementera list group kommandot
                         break;
+                    case "list country":
+                        // NYI: Implementera list country kommandot
+                        break;
                     case "quit":
                         exit = true;
                         break;
