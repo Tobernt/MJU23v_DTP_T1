@@ -9,7 +9,7 @@ DELUPPGIFT 2: Kommandoradsloop och Basfunktionalitet
 2.3 Skapa help och quit kommandon
 2.4 Gör stage/commit/push för varje implementerat kommando
 
-DELUPPGIFT 3: Implementera Fyra Frågekommandon
+DELUPPGIFT 3: Implementera Frågekommandon
 3.1 Implementera kod för varje kommando i 2.2
 3.2 Gör stage/commit/push för varje implementerat kommando
 
@@ -95,6 +95,9 @@ namespace MJU23v_DTP_T1
                     case "list country":
                         // NYI: Implementera list country kommandot
                         break;
+                    case "list between":
+                        // NYI: Implementera list between kommandot
+                        break;
                     case "quit":
                         exit = true;
                         break;
@@ -105,7 +108,6 @@ namespace MJU23v_DTP_T1
             }
         }
 
-        // TODO: Implementera resterande kommandon
     }
 }
 
