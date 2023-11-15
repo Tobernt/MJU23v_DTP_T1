@@ -102,6 +102,7 @@ namespace MJU23v_DTP_T1
                             }
                         }
                         break;
+
                     case "list country":
                         Console.WriteLine("Enter the name of the country (leave blank to list all countries):");
                         string inputCountry = Console.ReadLine().Trim();
@@ -115,6 +116,7 @@ namespace MJU23v_DTP_T1
                             }
                         }
                         break;
+
                     case "list between":
                         Console.WriteLine("Enter the lower limit of the population range:");
                         if (int.TryParse(Console.ReadLine(), out int lowNum))
@@ -141,6 +143,7 @@ namespace MJU23v_DTP_T1
                             Console.WriteLine("Invalid input for lower limit. Please enter a valid integer.");
                         }
                         break;
+
                     case "show language":
                         Console.Write("Enter language name: ");
                         string languageName = Console.ReadLine();
@@ -156,9 +159,28 @@ namespace MJU23v_DTP_T1
                             Console.WriteLine($"Language '{languageName}' not found.");
                         }
                         break;
+
                     case "show group":
-                        // NYI: Implementera show group kommandot
+                        Console.Write("Enter group name: ");
+                        inputGroup = Console.ReadLine().Trim();
+
+                        var languagesInGroup = eulangs
+                            .Where(lang => lang.group.Split('>').Any(group => group.Equals(inputGroup, StringComparison.OrdinalIgnoreCase)))
+                            .ToList();
+
+                        if (languagesInGroup.Any())
+                        {
+                            foreach (var language in languagesInGroup)
+                            {
+                                Console.WriteLine($"{language.language}:\nfamily: {language.family}\ngroup: {language.group}\npopulation: {language.pop}\narea: {language.area}\n");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Group '{inputGroup}' not found.");
+                        }
                         break;
+
                     case "show country":
                         // NYI: Implementera show country kommandot
                         break;
