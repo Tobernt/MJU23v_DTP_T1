@@ -141,8 +141,20 @@ namespace MJU23v_DTP_T1
                             Console.WriteLine("Invalid input for lower limit. Please enter a valid integer.");
                         }
                         break;
-                    case "show":
-                        // NYI: Implementera show language kommandot
+                    case "show language":
+                        Console.Write("Enter language name: ");
+                        string languageName = Console.ReadLine();
+
+                        var languageToShow = eulangs.FirstOrDefault(lang => lang.language.Equals(languageName, StringComparison.OrdinalIgnoreCase));
+
+                        if (languageToShow != null)
+                        {
+                            Console.WriteLine($"Language {languageToShow.language}:\n  family: {languageToShow.family}\n  population: {languageToShow.pop}\n  area: {languageToShow.area}");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Language '{languageName}' not found.");
+                        }
                         break;
                     case "show group":
                         // NYI: Implementera show group kommandot
