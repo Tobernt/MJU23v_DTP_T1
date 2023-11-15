@@ -30,8 +30,10 @@ DELUPPGIFT 6: Validering och Testning
 6.3 Gör stage/commit/push för detta steg
 */
 
-
+using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 
 namespace MJU23v_DTP_T1
 {
@@ -78,44 +80,29 @@ namespace MJU23v_DTP_T1
                     line = sr.ReadLine();
                 }
             }
-            Console.WriteLine("==== Languages in Spain ====");
-            foreach (Language L in eulangs)
+            // Kommandoradsloop
+            bool exit = false;
+            while (!exit)
             {
-                int index = L.area.IndexOf("Spain");
-                if (index != -1)
-                    L.Print();
+                Console.Write("Enter command (type 'help' for a list of commands): ");
+                string input = Console.ReadLine().ToLower();
+
+                switch (input)
+                {
+                    case "list group":
+                        // NYI: Implementera list group kommandot
+                        break;
+                    case "quit":
+                        exit = true;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid command. Type 'help' for a list of commands.");
+                        break;
+                }
             }
-            Console.WriteLine("==== Baltic Languages ====");
-            foreach (Language L in eulangs)
-            {
-                int index = L.group.IndexOf("Baltic");
-                if (index != -1)
-                    L.Print();
-            }
-            Console.WriteLine("==== Population larger than 50 millions ====");
-            foreach (Language L in eulangs)
-            {
-                if (L.pop >= 50_000_000)
-                    L.Print();
-            }
-            Console.WriteLine("==== Number of Germanics ====");
-            int sumgerm = 0;
-            foreach (Language L in eulangs)
-            {
-                int index = L.group.IndexOf("Germanic");
-                if (index != -1)
-                    sumgerm += L.pop;
-            }
-            Console.WriteLine($"Germanic speaking population: {sumgerm}");
-            Console.WriteLine("==== Number of Romance ====");
-            int sumromance = 0;
-            foreach (Language L in eulangs)
-            {
-                int index = L.group.IndexOf("Romance");
-                if (index != -1)
-                    sumromance += L.pop;
-            }
-            Console.WriteLine($"Romance speaking population: {sumromance}");
         }
+
+        // TODO: Implementera resterande kommandon
     }
 }
+
