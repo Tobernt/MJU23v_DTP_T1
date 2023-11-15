@@ -114,9 +114,10 @@ namespace MJU23v_DTP_T1
                         // NYI: Implementera population group kommandot
                         break;
                     case "help":
-                        // NYI: Implementera help kommandot
+                            Console.WriteLine("Available commands: list group, list country, list between, show language, show group, show country, show between, population group, help, quit");
                         break;
                     case "quit":
+                        Console.WriteLine("Exiting program...");
                         exit = true;
                         break;
                     default:
