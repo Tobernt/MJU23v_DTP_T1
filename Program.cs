@@ -182,8 +182,24 @@ namespace MJU23v_DTP_T1
                         break;
 
                     case "show country":
-                        // NYI: Implementera show country kommandot
+                        Console.Write("Enter country name: ");
+                        inputCountry = Console.ReadLine()?.Trim();
+
+                        var languagesInCountry = eulangs.Where(lang => lang.area.Split(',').Any(country => country.Equals(inputCountry, StringComparison.OrdinalIgnoreCase))).ToList();
+
+                        if (languagesInCountry.Any())
+                        {
+                            foreach (var language in languagesInCountry)
+                            {
+                                Console.WriteLine($"{language.language}:\nfamily: {language.family}\ngroup: {language.group}\npopulation: {language.pop}\narea: {language.area}\n");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Country '{inputCountry}' not found.");
+                        }
                         break;
+
                     case "show between":
                         // NYI: Implementera show between kommandot
                         break;
