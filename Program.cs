@@ -1,34 +1,4 @@
-﻿/*Task list
-DELUPPGIFT 1: Ladda filen lang.txt vid programstart
-1.1 Implementera kod för att läsa innehållet från lang.txt (Redan gjort av läraren)
-1.2 Testa och säkerställ att filen laddas korrekt  (körde en test körning och den listar infon)
-
-DELUPPGIFT 2: Kommandoradsloop och Basfunktionalitet
-2.1 Implementera en enkel kommandoradsloop
-2.2 Skapa kommandon för list group, list country, list between, show language, show group,show country countryname, show between lownum and hinum och population group groupname
-2.3 Skapa help och quit kommandon
-2.4 Gör stage/commit/push för varje implementerat kommando
-
-DELUPPGIFT 3: Implementera Frågekommandon
-3.1 Implementera kod för varje kommando i 2.2
-3.2 Gör stage/commit/push för varje implementerat kommando
-
-DELUPPGIFT 4: Hjälputskrift och Avsluta Kommandon
-4.1 Implementera help kommandot för att visa tillgängliga kommandon
-4.2 Implementera quit kommandot för att avsluta programmet
-4.3 Gör stage/commit/push för varje implementerat kommando
-
-DELUPPGIFT 5: Kommentera Kod
-5.1 Kommentera koden för förståelse och läsbarhet
-5.2 Lägg till //NYI-kommentarer för de kommandon som inte har implementerats
-5.3 Lägg till //TBD-funktioner om det finns möjlighet till refaktorering i framtiden
-5.4 Gör stage/commit/push för detta steg
-
-DELUPPGIFT 6: Validering och Testning
-6.1 Testa varje kommando och se till att de ger förväntade resultat
-6.2 Validera användarens inmatning och hantera felaktiga kommandon med //FIXME-kommentarer  -- Future me, I did not remember and did more work then necessary in most else situations where I could of just added //FIXME
-6.3 Gör stage/commit/push för detta steg
-*/
+﻿
 
 using System;
 using System.Collections.Generic;
@@ -91,7 +61,7 @@ namespace MJU23v_DTP_T1
                 switch (input)
                 {
                     case "list group":
-                        //TBD Could be Refactored
+
                         Console.WriteLine("Enter the name of the language group (leave blank to list all groups):");
                         string inputGroup = Console.ReadLine().Trim();
 
@@ -106,7 +76,7 @@ namespace MJU23v_DTP_T1
                         break;
 
                     case "list country":
-                        //TBD Could be Refactored
+
                         Console.WriteLine("Enter the name of the country (leave blank to list all countries):");
                         string inputCountry = Console.ReadLine().Trim();
 
@@ -121,7 +91,7 @@ namespace MJU23v_DTP_T1
                         break;
 
                     case "list between":
-                        //TBD Could be Refactored
+
                         Console.WriteLine("Enter the lower limit of the population range:");
                         if (int.TryParse(Console.ReadLine(), out int lowNumber))
                         {
@@ -149,7 +119,7 @@ namespace MJU23v_DTP_T1
                         break;
 
                     case "show language":
-                        //TBD Could be Refactored
+
                         Console.Write("Enter language name: ");
                         string languageName = Console.ReadLine();
 
@@ -166,7 +136,7 @@ namespace MJU23v_DTP_T1
                         break;
 
                     case "show group":
-                        //TBD Could be Refactored
+
                         Console.Write("Enter group name: ");
                         inputGroup = Console.ReadLine().Trim();
 
@@ -188,7 +158,7 @@ namespace MJU23v_DTP_T1
                         break;
 
                     case "show country":
-                        //TBD Could be Refactored
+
                         Console.Write("Enter country name: ");
                         inputCountry = Console.ReadLine();
 
@@ -208,7 +178,7 @@ namespace MJU23v_DTP_T1
                         break;
 
                     case "show between":
-                        //TBD Could be Refactored
+
                         Console.Write("Enter low population number: ");
                         if (int.TryParse(Console.ReadLine(), out int lowNum))
                         {
@@ -241,7 +211,7 @@ namespace MJU23v_DTP_T1
                         break;
 
                     case "population group":
-                        //TBD Could be Refactored
+
                         Console.Write("Enter group name: ");
                         string inputGroupName = Console.ReadLine();
 
